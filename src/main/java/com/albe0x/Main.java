@@ -20,14 +20,21 @@ public class Main {
 
         Socket s = new Socket(ip, porta);
 
-        System.out.println("frase da returnare in upper");
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 
-        myObj.nextLine();
-        String lower = myObj.nextLine();
-        out.println(lower);
-        System.out.println(in.readLine());
+        while (true) { 
+            System.out.println("frase da returnare in upper");
+            myObj.nextLine();
+            String lower = myObj.nextLine();
+            if (lower.compareToIgnoreCase("exit") == 0){
+                out.println("!");
+                return;
+            }
+            out.println(lower);
+            System.out.println(in.readLine());
+
+        }
 
     }
 
