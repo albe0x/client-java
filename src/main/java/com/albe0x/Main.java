@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -24,17 +25,41 @@ public class Main {
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 
-        while (true) { 
-            System.out.println("frase da returnare in upper");
-            String lower = inputTastiera.nextLine();
-            if (lower.compareToIgnoreCase("exit") == 0){
-                out.println("!");
-                return;
-            }
-            out.println(lower);
-            System.out.println(in.readLine());
+        in.readLine();
+        out.println("BenveClient 1.0");
 
+        System.out.println("Numero 1");
+        out.println(inputTastiera.nextLine());
+
+        System.out.println("Numero 2");
+        out.println(inputTastiera.nextLine());
+
+        System.out.println("Operazione");
+        String operazione = inputTastiera.nextLine();
+        int opCode;
+        switch (operazione) {
+            case "+":
+            opCode = 1;
+                break;
+            case "-":
+            opCode = 2;
+                break;
+            case "/":
+            opCode = 3;
+                break;
+            case "*":
+            opCode = 4;
+                break;
+            default:
+            opCode = 0;
+                break;
         }
+        out.println(opCode);
+
+        System.out.println(in.readLine());
+
+
+ 
 
     }
 
