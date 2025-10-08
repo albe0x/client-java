@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -28,8 +27,15 @@ public class Main {
         in.readLine();
         out.println("BenveClient 1.0");
 
+        while (true) {
+            
+        
         System.out.println("Numero 1");
-        out.println(inputTastiera.nextLine());
+        String n1 = inputTastiera.nextLine();
+        if(n1.compareTo("exit") == 0){
+            return;
+        }
+        out.println(n1);
 
         System.out.println("Numero 2");
         out.println(inputTastiera.nextLine());
@@ -57,7 +63,7 @@ public class Main {
         out.println(opCode);
 
         System.out.println(in.readLine());
-
+    }
 
  
 
