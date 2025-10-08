@@ -10,13 +10,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("ciao");
-        Scanner myObj = new Scanner(System.in);
+        Scanner inputTastiera = new Scanner(System.in);
 
         System.out.println("ip server");
-        String ip = myObj.nextLine();
+        String ip = inputTastiera.nextLine();
 
         System.out.println("porta server");
-        int porta = myObj.nextInt();
+        int porta = inputTastiera.nextInt();
+        inputTastiera.nextLine();
 
         Socket s = new Socket(ip, porta);
 
@@ -25,8 +26,7 @@ public class Main {
 
         while (true) { 
             System.out.println("frase da returnare in upper");
-            myObj.nextLine();
-            String lower = myObj.nextLine();
+            String lower = inputTastiera.nextLine();
             if (lower.compareToIgnoreCase("exit") == 0){
                 out.println("!");
                 return;
